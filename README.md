@@ -1,5 +1,5 @@
 # Smart India Hackathon 2024
-#Platform for Inter-departmental cooperation (at city level) in Indian Cities, for sharing data & resources, unified phasing, planning and implementation of projects.
+Platform for Inter-departmental cooperation (at city level) in Indian Cities, for sharing data & resources, unified phasing, planning and implementation of projects.
 Background: Multiplicity of authorities and implementing agencies in Indian Urban landscape is one of the biggest challenges for urban governance. Not only does it lead to underutilization of resources available with various departments, execution of multiple projects at same site may also lead to interference and delays due to miscoordination. A digital platform for interdepartmental cooperation can potentially resolve these issues and make inter-departmental cooperation more streamlined. Example- A road developed by one agency, may get damaged due to installation of gas pipelines or utility ducts on road 2 months later. This can be resolved with preemptive collaboration between both implementing agencies. 
 Description: The digital platform can provide solutions for- 
 1. Exchange of data and resources (technical expertise, machinery, technology etc.), and list of ongoing and upcoming projects between various agencies.
