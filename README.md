@@ -1,7 +1,7 @@
 # Smart India Hackathon 2024
 
 Problem Statement ID	: SIH1724\
-Organisation : [Ministry of Housing and Urban Affairs(https://stackoverflow.com)][Ministry of Housing and Urban Affairs]\
+Organisation : [Ministry of Housing and Urban Affairs](https://mohua.gov.in)\
 Department : Smart Cities Mission\
 Category : Software\
 Theme : 	Miscellaneous
