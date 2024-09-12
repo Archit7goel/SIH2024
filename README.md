@@ -21,3 +21,6 @@ Description: The digital platform can provide solutions for-
    c. Creation of tasks, scheduling, reporting and work distribution across departments for inter-departmental and multi-departmental projects.\
    d. Identification, unified phasing, planning, and implementation of projects on same site\
    e. Discussion forum, with different forum sections allowing access to specific groups of users.
+
+
+# Project Setup
