@@ -83,7 +83,7 @@ const TabsLayout = () => {
                         <TabIcon
                             icon={icons.model}
                             color={"#539ffc"}
-                            name="Pred"
+                            name="Predict"
                             focused={focused}
                         />
                     )

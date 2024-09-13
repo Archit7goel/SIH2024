@@ -111,11 +111,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     backgroundColor: '#F5F5F5',
-    paddingVertical: 10,
   },
   tabButton: {
-    paddingVertical: 10,
-    paddingHorizontal: 20,
+    paddingVertical: 12,
     borderWidth: 1,
     borderColor: '#ccc',
     flex: 1,

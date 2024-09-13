@@ -9,7 +9,9 @@ export default function App() {
 
   return (
     <View className="items-center justify-center h-[85vh]">
-      <Link href="/home">Go to home page</Link>
+      <Link style={{paddingBottom: 25}} href="/home">GO TO HOME PAGE</Link>
+      <Text>---</Text>
+      <Link style={{paddingTop: 25}} href="/auth">GO TO LOGIN PAGE</Link>
     </View>
   );
 }
