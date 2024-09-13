@@ -16,7 +16,7 @@ const Home = () => {
       year: '2028',
       location: 'jhchjhhv vv fvvk kuy­iukv kyk­uv',
       completion: 100,
-      img: images.thumbnail , // Replace with your image source
+      img: images.project5 , // Replace with your image source
     },
     // Add more completed projects here
   ];
@@ -27,7 +27,7 @@ const Home = () => {
       year: '2025',
       location: 'Somewhere in New City',
       completion: 70,
-      img: images.thumbnail, // Replace with your image source
+      img: images.project6, // Replace with your image source
     },
     // Add more ongoing projects here
   ];
@@ -38,7 +38,7 @@ const Home = () => {
       year: '2030',
       location: 'Downtown',
       completion: 0,
-      img: images.thumbnail, // Replace with your image source
+      img: images.project7, // Replace with your image source
     },
     // Add more future projects here
   ];
