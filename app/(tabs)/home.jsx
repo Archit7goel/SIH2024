@@ -9,32 +9,32 @@ const Home = () => {
     <SafeAreaView>
       <ScrollView>
       <ProjectCard
-          title="raunak"
+          title="NH 48"
           year="2028"
           location="bhjwb hwbr bhwbrk"
-          completion="85"
-          img={images.thumbnail}
+          completion="67"
+          img={images.project1}
         />
           <ProjectCard
-          title="raunak"
+          title="bunglow"
           year="2028"
           location="bhjwb hwbr bhwbrk"
           completion="85"
-          img={images.thumbnail}
+          img={images.project2}
         />
         <ProjectCard
-          title="raunak"
+          title="sarita apartmnets"
           year="2028"
           location="bhjwb hwbr bhwbrk"
-          completion="85"
-          img={images.thumbnail}
+          completion="73"
+          img={images.project3}
         />
         <ProjectCard
-          title="raunak"
+          title="house"
           year="2028"
           location="bhjwb hwbr bhwbrk"
-          completion="85"
-          img={images.thumbnail}
+          completion="54"
+          img={images.project4}
         />
       </ScrollView>
         <StatusBar backgroundColor='#161622' style='light'/>

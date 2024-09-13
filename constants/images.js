@@ -1,10 +1,14 @@
-import profile from "../assets/images/profile.png";
-import thumbnail from "../assets/images/thumbnail.png";
-import cards from "../assets/images/cards.png";
-import path from "../assets/images/path.png";
+import project1 from "../assets/images/project1.jpg";
+import project2 from "../assets/images/project2.jpg";
+import project3 from "../assets/images/project3.jpg";
+import project4 from "../assets/images/project4.jpg";
 import logo from "../assets/images/logo.png";
-import logoSmall from "../assets/images/logo-small.png";
-import empty from "../assets/images/empty.png";
-import Urban from "../assets/images/Urban.png";
-
-export default { profile, thumbnail, cards, path, logo, logoSmall, empty, Urban };
+import project5 from "../assets/images/project5.jpg";
+import project6 from "../assets/images/project6.jpg";
+import project7 from "../assets/images/project7.jpg";
+import project8 from "../assets/images/project8.jpg";
+import project9 from "../assets/images/project9.jpg";
+import project10 from "../assets/images/project10.jpg";
+import project11 from "../assets/images/project11.jpg";
+import project12 from "../assets/images/project12.jpg";
+export default { project1, project2, project3, project4, project5, project6, project7, project8, project9, project10, project11, project12, logo };
