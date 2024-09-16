@@ -2,7 +2,7 @@
 
 Problem Statement ID	: [SIH1724](https://www.sih.gov.in/sih2024PS)\
 Organisation : [Ministry of Housing and Urban Affairs](https://mohua.gov.in)\
-Department : Smart Cities Mission\
+Department : [Smart Cities Mission](https://smartcities.gov.in)\
 Category : Software\
 Theme : 	Miscellaneous
 
