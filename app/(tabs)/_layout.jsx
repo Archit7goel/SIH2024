@@ -32,8 +32,7 @@ const TabsLayout = () => {
             <Tabs.Screen
                 name="home"
                 options={{
-                    title: 'Home',
-                    headerShown: false,
+                    title: '                         City Forge',
                     tabBarIcon: ({ color, focused }) => (
                         <TabIcon
                             icon={icons.home}
@@ -47,8 +46,7 @@ const TabsLayout = () => {
             <Tabs.Screen
                 name="query"
                 options={{
-                    title: 'Search',
-                    headerShown: false,
+                    title: '                         City Forge',
                     tabBarIcon: ({ color, focused }) => (
                         <TabIcon
                             icon={icons.search}
@@ -62,8 +60,7 @@ const TabsLayout = () => {
             <Tabs.Screen
                 name="project"
                 options={{
-                    title: 'Projects',
-                    headerShown: false,
+                    title: '                         City Forge',
                     tabBarIcon: ({ color, focused }) => (
                         <TabIcon
                             icon={icons.project}
@@ -77,8 +74,7 @@ const TabsLayout = () => {
             <Tabs.Screen
                 name="prediction"
                 options={{
-                    title: 'Pred',
-                    headerShown: false,
+                    title: '                         City Forge',
                     tabBarIcon: ({ color, focused }) => (
                         <TabIcon
                             icon={icons.model}
