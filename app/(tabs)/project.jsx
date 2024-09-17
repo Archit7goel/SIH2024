@@ -1,88 +1,121 @@
 import React, { useState } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Image, TextInput, Alert } from 'react-native';
 import ProjectCard from '../../components/Card'; // Adjust the import path if needed
-import { StatusBar } from 'expo-status-bar';
 import { images } from '../../constants';
+import { icons } from "../../constants";
 
 const Project = () => {
-  // State to keep track of the selected tab (Completed, Ongoing, Future)
   const [selectedTab, setSelectedTab] = useState('Completed');
+  const [searchQuery, setSearchQuery] = useState(''); // State to manage the search query
 
-  // Sample data for each tab
-  const allProjects = [
-    {
-      title: 'Future Skyscraper',
-      year: '2030',
-      location: 'Downtown',
-      completion: 0,
-      img: images.project7, // Replace with your image source
-    },
-    {
-      title: 'Mall Construction',
-      year: '2025',
-      location: 'Somewhere in New City',
-      completion: 70,
-      img: images.project6, // Replace with your image source
-    },
-    {
-      title: 'Palam Pur Highway',
-      year: '2028',
-      location: 'jhchjhhv vv fvvk kuy­iukv kyk­uv',
-      completion: 100,
-      img: images.project5 , // Replace with your image source
-    }
-    // Add more projects here
-  ];
+// Sample data for each tab
 
-  const completedProjects = [
-    {
-      title: 'Palam Pur Highway',
-      year: '2028',
-      location: 'jhchjhhv vv fvvk kuy­iukv kyk­uv',
-      completion: 100,
-      img: images.project5 , // Replace with your image source
-    },
-    // Add more completed projects here
-  ];
+const completedProjects = [
+  {
+    title: 'Palam Pur Highway',
+    year: '2028',
+    location: 'jhchjhhv vv fvvk kuy­iukv kyk­uv',
+    completion: 100,
+    img: images.project5 , // Replace with your image source
+  },
+  // Add more completed projects here
+];
 
-  const ongoingProjects = [
-    {
-      title: 'Mall Construction',
-      year: '2025',
-      location: 'Somewhere in New City',
-      completion: 70,
-      img: images.project6, // Replace with your image source
-    },
-    // Add more ongoing projects here
-  ];
+const ongoingProjects = [
+  {
+    title: 'Mall Construction',
+    year: '2025',
+    location: 'Somewhere in New City',
+    completion: 70,
+    img: images.project6, // Replace with your image source
+  },
+  {
+    title: 'Theater Construction',
+    year: '2025',
+    location: 'Somewhere in New City',
+    completion: 70,
+    img: images.project6, // Replace with your image source
+  },
+  {
+    title: 'Road Construction',
+    year: '2025',
+    location: 'Somewhere in New City',
+    completion: 70,
+    img: images.project6, // Replace with your image source
+  },
+  {
+    title: 'Dam Construction',
+    year: '2025',
+    location: 'Somewhere in New City',
+    completion: 70,
+    img: images.project6, // Replace with your image source
+  },
+  {
+    title: 'Bridge Construction',
+    year: '2025',
+    location: 'Somewhere in New City',
+    completion: 70,
+    img: images.project6, // Replace with your image source
+  },
+  {
+    title: 'Hospital Construction',
+    year: '2025',
+    location: 'Somewhere in New City',
+    completion: 70,
+    img: images.project6, // Replace with your image source
+  },
+  {
+    title: 'New Mall',
+    year: '2025',
+    location: 'Somewhere in New City',
+    completion: 70,
+    img: images.project6, // Replace with your image source
+  }
+  // Add more ongoing projects here
+];
 
-  const futureProjects = [
-    {
-      title: 'Future Skyscraper',
-      year: '2030',
-      location: 'Downtown',
-      completion: 0,
-      img: images.project7, // Replace with your image source
-    },
-    // Add more future projects here
-  ];
+const futureProjects = [
+  {
+    title: 'Future Skyscraper',
+    year: '2030',
+    location: 'Downtown',
+    completion: 0,
+    img: images.project7, // Replace with your image source
+  },
+  // Add more future projects here
+];
+const allProjects = [...completedProjects,...ongoingProjects,...futureProjects,];
 
-  // Render cards based on the selected tab
-  const renderProjectCards = () => {
-    let projectList = [];
-
-    if (selectedTab === 'Completed') {
-      projectList = completedProjects;
-    } else if (selectedTab === 'Ongoing') {
-      projectList = ongoingProjects;
+// Get the list of projects based on the selected tab
+const getProjectsByTab = () => {
+  if (selectedTab === 'Completed') {
+    return completedProjects;
+  } else if (selectedTab === 'Ongoing') {
+      return ongoingProjects;
     } else if (selectedTab === 'Future') {
-      projectList = futureProjects;
+      return futureProjects;
     } else if (selectedTab === 'All') {
-      projectList = allProjects;
+      return allProjects;
     }
+    return [];
+  };
 
-    return projectList.map((project, index) => (
+  // Filter projects based on the search query
+  const filterProjects = (projects) => {
+    if (searchQuery === '') {
+      return projects;
+    }
+    return projects.filter(project =>
+      project.title.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  };
+
+  // Render filtered project cards
+  const renderProjectCards = () => {
+    const projects = getProjectsByTab();
+    const filteredProjects = filterProjects(projects);
+
+    return filteredProjects.map((project, index) => (
       <ProjectCard
         key={index}
         title={project.title}
@@ -98,36 +131,36 @@ const Project = () => {
     <View style={{ flex: 1, backgroundColor: '#FFFFFF' }}>
       {/* Tab Menu */}
       <View style={styles.tabContainer}>
-        {/* Completed Tab */}
-        <TouchableOpacity
-          style={[styles.tabButton, selectedTab === 'All' && styles.selectedTab]}
-          onPress={() => setSelectedTab('All')}
-        >
-          <Text style={styles.tabText}>All</Text>
-        </TouchableOpacity>
+        {['All', 'Completed', 'Ongoing', 'Future'].map((tab) => (
+          <TouchableOpacity
+            key={tab}
+            style={[styles.tabButton, selectedTab === tab && styles.selectedTab]}
+            onPress={() => setSelectedTab(tab)}
+          >
+            <Text style={styles.tabText}>{tab}</Text>
+          </TouchableOpacity>
+        ))}
+      </View>
 
-        {/* Completed Tab */}
+      {/* Search Bar */}
+      <View style={styles.queryContainer}>
+        <TextInput
+          style={styles.queryInput}
+          value={searchQuery}
+          placeholder="Search a project"
+          placeholderTextColor="#CDCDE0"
+          onChangeText={(text) => setSearchQuery(text)}
+        />
         <TouchableOpacity
-          style={[styles.tabButton, selectedTab === 'Completed' && styles.selectedTab]}
-          onPress={() => setSelectedTab('Completed')}
+          onPress={() => {
+            if (searchQuery === "")
+              return Alert.alert(
+                "Missing Query",
+                "Please input something to search results across the database"
+              );
+          }}
         >
-          <Text style={styles.tabText}>Completed</Text>
-        </TouchableOpacity>
-
-        {/* Ongoing Tab */}
-        <TouchableOpacity
-          style={[styles.tabButton, selectedTab === 'Ongoing' && styles.selectedTab]}
-          onPress={() => setSelectedTab('Ongoing')}
-        >
-          <Text style={styles.tabText}>Ongoing</Text>
-        </TouchableOpacity>
-
-        {/* Future Tab */}
-        <TouchableOpacity
-          style={[styles.tabButton, selectedTab === 'Future' && styles.selectedTab]}
-          onPress={() => setSelectedTab('Future')}
-        >
-          <Text style={styles.tabText}>Future</Text>
+          <Image source={icons.search} style={{ width: 20, height: 20 }} resizeMode="contain" />
         </TouchableOpacity>
       </View>
 
@@ -158,6 +191,19 @@ const styles = StyleSheet.create({
   tabText: {
     fontSize: 16,
     color: '#333',
+  },
+  queryContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    height: 50,
+    backgroundColor: '#F1F1F1',
+    borderRadius: 10,
+    paddingHorizontal: 10,
+    marginBottom: 20,
+  },
+  queryInput: {
+    flex: 1,
+    fontSize: 16,
   },
 });
 

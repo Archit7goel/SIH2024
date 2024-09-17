@@ -4,6 +4,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import  ProjectCard  from '../../components/Card';
 import { images } from '../../constants';
+
+
 const Home = () => {
   return (
     <ScrollView>

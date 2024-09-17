@@ -1,39 +1,19 @@
-import { useState } from "react";
-import { router, usePathname } from "expo-router";
-import { View, TouchableOpacity, Image, TextInput, Alert } from "react-native";
-
-import { icons } from "../../constants";
-
-const query = ({ initialQuery }) => {
-  const pathname = usePathname();
-  const [query, setQuery] = useState(initialQuery || "");
-
+import { StatusBar } from 'expo-status-bar';
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+export default function App() {
   return (
-    <View className="flex flex-row items-center space-x-4 w-full h-16 px-4 bg-slate-200 rounded-2xl border-2 border-blue-400 focus:border-secondary">
-      <TextInput
-        className="text-base mt-0.5 text-slate-700 flex-1 font-pregular"
-        value={query}
-        placeholder="Search a project"
-        placeholderTextColor="#CDCDE0"
-        onChangeText={(e) => setQuery(e)}
-      />
-
-      <TouchableOpacity
-        onPress={() => {
-          if (query === "")
-            return Alert.alert(
-              "Missing Query",
-              "Please input something to search results across database"
-            );
-
-          if (pathname.startsWith("/search")) router.setParams({ query });
-          else router.push(`/search/${query}`);
-        }}
-      >
-        <Image source={icons.search} className="w-5 h-5" resizeMode="contain" />
-      </TouchableOpacity>
+    <View style={styles.container}>
+      <Text>Add Projects Page</Text>
+      <StatusBar style="auto" />
     </View>
   );
-};
-
-export default query;
+}
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, Alert, ScrollView } from "react-native";
 import {Link } from 'expo-router';
 import Icon from "react-native-vector-icons/Feather";
+import {Picker} from '@react-native-picker/picker';
 
 const DarkGridAuth = () => {
   const [isRegistering, setIsRegistering] = useState(false);
@@ -34,19 +35,21 @@ const Heading = ({ isRegistering }) => {
 
 const LoginSection = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [role, setRole] = useState("worker"); // Default to "worker"
-
-  const handleSubmit = () => {
-    console.log("Login Form Submitted");
-  };
+  const [role, setRole] = useState("Officer"); // Default to "Officer"
 
   return (
+    <ScrollView contentContainerStyle={{ flexGrow: 1 }} showsVerticalScrollIndicator={false}>
     <View className="flex-1">
       <TextInput
         className="bg-gray-800 p-4 rounded-md text-white mb-4"
         placeholder="Phone Number"
         placeholderTextColor="gray"
         keyboardType="phone-pad"
+      />
+      <TextInput
+        className="bg-gray-800 p-4 rounded-md text-white mb-4"
+        placeholder="Email"
+        placeholderTextColor="gray"
       />
       <View className="relative mb-4">
         <TextInput
@@ -70,70 +73,213 @@ const LoginSection = () => {
       <View className="flex-row items-center mb-4">
         <TouchableOpacity
           className={`flex-row items-center p-2 mr-4 ${
-            role === "manager" ? "bg-gray-700" : "bg-gray-800"
+            role === "Head" ? "bg-gray-700" : "bg-gray-800"
           } rounded-md`}
-          onPress={() => setRole("manager")}
+          onPress={() => setRole("Head")}
         >
           <View
             className={`w-5 h-5 border-2 border-white rounded-full ${
-              role === "manager" ? "bg-white" : ""
+              role === "Head" ? "bg-white" : ""
             }`}
           />
           <Text
             className={`text-white ml-2 ${
-              role === "manager" ? "font-bold" : ""
+              role === "Head" ? "font-bold" : ""
             }`}
           >
-            Manager
+            Head
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
           className={`flex-row items-center p-2 ${
-            role === "worker" ? "bg-gray-700" : "bg-gray-800"
+            role === "Officer" ? "bg-gray-700" : "bg-gray-800"
           } rounded-md`}
-          onPress={() => setRole("worker")}
+          onPress={() => setRole("Officer")}
         >
           <View
             className={`w-5 h-5 border-2 border-white rounded-full ${
-              role === "worker" ? "bg-white" : ""
+              role === "Officer" ? "bg-white" : ""
             }`}
           />
           <Text
             className={`text-white ml-2 ${
-              role === "worker" ? "font-bold" : ""
+              role === "Officer" ? "font-bold" : ""
             }`}
           >
-            Worker
+            Officer
           </Text>
         </TouchableOpacity>
       </View>
     </View>
+    </ScrollView>
   );
 };
 
 const RegisterSection = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [role, setRole] = useState("worker"); 
+  const [role, setRole] = useState("Officer");
+  const [department, setDepartment] = useState("placeholder"); // Default set to "placeholder"
+  const [departmentError, setDepartmentError] = useState(""); // State for handling department validation errors
+  const [designation, setDesignation] = useState("");  // State to manage designation input
+  const [designationError, setDesignationError] = useState("");  // State to handle designation validation errors
+  const [name, setName] = useState("");  // State to manage name input
+  const [nameError, setNameError] = useState("");  // State to handle name validation errors
+  const [phone, setPhone] = useState("");  // State to manage phone input
+  const [phoneError, setPhoneError] = useState("");  // State to handle phone validation errors
+  const [email, setEmail] = useState("");  // State to manage email input
+  const [emailError, setEmailError] = useState("");  // State to handle email validation errors
+  const [password, setPassword] = useState("");  // State to manage password input
+  const [passwordError, setPasswordError] = useState("");  // State to handle password validation errors
+
+  const handleNameChange = (input) => {
+    setName(input);
+    if (!/^[A-Za-z\s]+$/.test(input) || input.length < 2) {
+      setNameError("Name must contain only letters and must contain at least 2 characters.");
+    } else {
+      setNameError("");  // Reset error if the name is valid
+    }
+  };
+
+  const handlePhoneChange = (input) => {
+    setPhone(input);
+    if (!/^[6-9][0-9]{9}$/.test(input)) {
+      setPhoneError("Phone number must contain 10 digits");
+    } else {
+      setPhoneError("");  // Reset error if the phone number is valid
+    }
+  };
+
+  const handleEmailChange = (input) => {
+    setEmail(input);
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(input)) {
+      setEmailError("Please enter a valid Email Address.");
+    } else {
+      setEmailError("");  // Reset error if the email is valid
+    }
+  };
+
+  const handleDepartmentChange = (itemValue) => {
+    setDepartment(itemValue);
+    if (itemValue === "placeholder") {
+      setDepartmentError("Please select a valid Department Name.");
+    } else {
+      setDepartmentError("");  // Reset error if the department is valid
+    }
+  };
+
+  const handleDesignationChange = (itemValue) => {
+    setDesignation(itemValue);
+    if (itemValue === "placeholder") {
+      setDesignationError("Please select a valid Job Designation.");
+    } else {
+      setDesignationError("");  // Reset error if the designation is valid
+    }
+  };
+
+  const handlePasswordChange = (input) => {
+    setPassword(input);
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,}$/;
+    if (!passwordRegex.test(input)) {
+      setPasswordError(
+        "Password must be at least 6 characters long, and include at least 1 uppercase, 1 lowercase, and 1 digit."
+      );
+    } else {
+      setPasswordError("");  // Reset error if the password is valid
+    }
+  };
 
   return (
+    <ScrollView contentContainerStyle={{ flexGrow: 1 }} showsVerticalScrollIndicator={false}>
     <View className="flex-1">
       <TextInput
         className="bg-gray-800 p-4 rounded-md text-white mb-4"
         placeholder="Name"
         placeholderTextColor="gray"
+        value={name}
+        onChangeText={handleNameChange}  // Handle input changes
       />
+      {nameError ? (
+        <Text className="text-red-500 mb-4">{nameError}</Text>  // Display error message
+      ) : null}
+
       <TextInput
         className="bg-gray-800 p-4 rounded-md text-white mb-4"
         placeholder="Phone Number"
         placeholderTextColor="gray"
         keyboardType="phone-pad"
+        value={phone}
+        onChangeText={handlePhoneChange}  // Handle phone number changes
       />
+      {phoneError ? (
+        <Text className="text-red-500 mb-4">{phoneError}</Text>  // Display phone number error message
+      ) : null}
+
+      <TextInput
+        className="bg-gray-800 p-4 rounded-md text-white mb-4"
+        placeholder="Email"
+        placeholderTextColor="gray"
+        keyboardType="email-address"
+        value={email}
+        onChangeText={handleEmailChange}  // Handle email changes
+      />
+      {emailError ? (
+        <Text className="text-red-500 mb-4">{emailError}</Text>  // Display email error message
+      ) : null}
+      
+
+      {/* Department and Designation Pickers */}
+      <View className="bg-[#202938] text-[#6e7378] p-1 rounded-md mb-4">
+        <Picker
+          selectedValue={department}
+          onValueChange={handleDepartmentChange}  // Handle department selection changes
+          className="bg-[#202938] text-[#6e7378] border border-[#6e7378]  rounded-lg"
+          style={{
+            color: '#6e7378',
+            backgroundColor: '#202938',
+          }}
+          itemStyle={{ color: '#ffffff' }}
+        >
+          <Picker.Item label="Insert Your Department Name" value="placeholder" />
+          <Picker.Item label="DDA" value="dda" />
+          <Picker.Item label="Low" value="low" />
+          <Picker.Item label="Medium" value="medium" />
+          <Picker.Item label="High" value="high" />
+          <Picker.Item label="Very High" value="very high" />
+        </Picker>
+      </View>
+      {departmentError ? (
+        <Text className="text-red-500 mb-4">{departmentError}</Text>  // Display department error message
+      ) : null}
+
+      <View className="bg-[#202938] text-[#6e7378] p-1 rounded-md mb-4">
+        <Picker
+          selectedValue={designation}
+          onValueChange={handleDesignationChange}  // Handle designation selection changes
+          className="bg-[#202938] text-[#6e7378] border border-[#6e7378]  rounded-lg"
+          style={{
+            color: '#6e7378',
+            backgroundColor: '#202938',
+          }}
+          itemStyle={{ color: '#ffffff' }}
+        >
+          <Picker.Item label="Insert Your Job Designation" value="placeholder" />
+          <Picker.Item label="Officer" value="officer" />
+          <Picker.Item label="Employee" value="employee" />
+          <Picker.Item label="Technical Expert" value="technical_expert" />
+        </Picker>
+      </View>
+      {designationError ? (
+        <Text className="text-red-500 mb-4">{designationError}</Text>  // Display designation error message
+      ) : null}
+
       <View className="relative mb-4">
         <TextInput
           className="bg-gray-800 p-4 rounded-md text-white"
           placeholder="Password"
           placeholderTextColor="gray"
           secureTextEntry={!showPassword}
+          value={password}
+          onChangeText={handlePasswordChange}  // Password validation handler
         />
         <TouchableOpacity
           className="absolute right-4 top-4"
@@ -146,52 +292,57 @@ const RegisterSection = () => {
           />
         </TouchableOpacity>
       </View>
+      {passwordError ? (
+        <Text className="text-red-500 mb-4">{passwordError}</Text>
+      ) : null}
 
       <View className="flex-row items-center mb-4">
         <TouchableOpacity
           className={`flex-row items-center p-2 mr-4 ${
-            role === "manager" ? "bg-gray-700" : "bg-gray-800"
+            role === "Head" ? "bg-gray-700" : "bg-gray-800"
           } rounded-md`}
-          onPress={() => setRole("manager")}
+          onPress={() => setRole("Head")}
         >
           <View
             className={`w-5 h-5 border-2 border-white rounded-full ${
-              role === "manager" ? "bg-white" : ""
+              role === "Head" ? "bg-white" : ""
             }`}
           />
           <Text
             className={`text-white ml-2 ${
-              role === "manager" ? "font-bold" : ""
+              role === "Head" ? "font-bold" : ""
             }`}
           >
-            Manager
-          </Text>
+            Head
+            </Text>
         </TouchableOpacity>
         <TouchableOpacity
           className={`flex-row items-center p-2 ${
-            role === "worker" ? "bg-gray-700" : "bg-gray-800"
+            role === "Officer" ? "bg-gray-700" : "bg-gray-800"
           } rounded-md`}
-          onPress={() => setRole("worker")}
+          onPress={() => setRole("Officer")}
         >
           <View
             className={`w-5 h-5 border-2 border-white rounded-full ${
-              role === "worker" ? "bg-white" : ""
+              role === "Officer" ? "bg-white" : ""
             }`}
           />
           <Text
             className={`text-white ml-2 ${
-              role === "worker" ? "font-bold" : ""
+              role === "Officer" ? "font-bold" : ""
             }`}
           >
-            Worker
+            Officer
           </Text>
         </TouchableOpacity>
       </View>
 
 
     </View>
+    </ScrollView>    
   );
 };
+
 
 const Terms = () => {
   return (

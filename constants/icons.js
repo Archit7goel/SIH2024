@@ -14,6 +14,7 @@ import play from "../assets/icons/play.png";
 import project from "../assets/icons/project.png";
 import task from "../assets/icons/task.png";
 import model from "../assets/icons/model.png";
+import add from "../assets/icons/plus.png";
 
 export default {
   play,
@@ -32,4 +33,5 @@ export default {
   project,
   task,
   model,
+  add
 };
