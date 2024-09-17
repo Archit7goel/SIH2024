@@ -5,11 +5,36 @@ import ProjectCard from '../../components/Card'; // Adjust the import path if ne
 import { StatusBar } from 'expo-status-bar';
 import { images } from '../../constants';
 
-const Home = () => {
+const Project = () => {
   // State to keep track of the selected tab (Completed, Ongoing, Future)
   const [selectedTab, setSelectedTab] = useState('Completed');
 
   // Sample data for each tab
+  const allProjects = [
+    {
+      title: 'Future Skyscraper',
+      year: '2030',
+      location: 'Downtown',
+      completion: 0,
+      img: images.project7, // Replace with your image source
+    },
+    {
+      title: 'Mall Construction',
+      year: '2025',
+      location: 'Somewhere in New City',
+      completion: 70,
+      img: images.project6, // Replace with your image source
+    },
+    {
+      title: 'Palam Pur Highway',
+      year: '2028',
+      location: 'jhchjhhv vv fvvk kuy­iukv kyk­uv',
+      completion: 100,
+      img: images.project5 , // Replace with your image source
+    }
+    // Add more projects here
+  ];
+
   const completedProjects = [
     {
       title: 'Palam Pur Highway',
@@ -53,6 +78,8 @@ const Home = () => {
       projectList = ongoingProjects;
     } else if (selectedTab === 'Future') {
       projectList = futureProjects;
+    } else if (selectedTab === 'All') {
+      projectList = allProjects;
     }
 
     return projectList.map((project, index) => (
@@ -68,9 +95,17 @@ const Home = () => {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: '#FFFFFF' }}>
+    <View style={{ flex: 1, backgroundColor: '#FFFFFF' }}>
       {/* Tab Menu */}
       <View style={styles.tabContainer}>
+        {/* Completed Tab */}
+        <TouchableOpacity
+          style={[styles.tabButton, selectedTab === 'All' && styles.selectedTab]}
+          onPress={() => setSelectedTab('All')}
+        >
+          <Text style={styles.tabText}>All</Text>
+        </TouchableOpacity>
+
         {/* Completed Tab */}
         <TouchableOpacity
           style={[styles.tabButton, selectedTab === 'Completed' && styles.selectedTab]}
@@ -100,9 +135,7 @@ const Home = () => {
       <ScrollView contentContainerStyle={{ padding: 20 }}>
         {renderProjectCards()}
       </ScrollView>
-
-      <StatusBar backgroundColor="#161622" style="light" />
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -128,4 +161,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Home;
+export default Project;

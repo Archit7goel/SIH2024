@@ -36,7 +36,7 @@ const ProjectEvaluationForm = () => {
       designVariationFactor
     ) {
       // Navigate to DescriptionPage and pass the form data
-      navigation.navigate('delayresult', {
+      navigation.navigate('(predict)/delayresult', {
         estimatedArea,
         estimatedHeight,
         numberOfWorkers,

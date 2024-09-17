@@ -8,7 +8,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 const Stack = createStackNavigator();
 
 
-const HomePage = ({ navigation }) => {
+const Prediction = ({ navigation }) => {
   return (
     <ScrollView style={styles.container}>
       {/* Delay Prediction */}
@@ -46,4 +46,4 @@ const HomePage = ({ navigation }) => {
 
 const styles = StyleSheet.create({});
 
-export default HomePage;
+export default Prediction;

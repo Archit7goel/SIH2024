@@ -33,6 +33,13 @@ const TabsLayout = () => {
                 name="home"
                 options={{
                     title: '                         City Forge',
+                    headerStyle: {
+                        backgroundColor: '#000',
+                      },
+                    headerTintColor: '#fff',
+                     headerTitleStyle: {
+                        fontWeight: 'bold'
+                     },
                     tabBarIcon: ({ color, focused }) => (
                         <TabIcon
                             icon={icons.home}
@@ -47,6 +54,13 @@ const TabsLayout = () => {
                 name="query"
                 options={{
                     title: '                         City Forge',
+                    headerStyle: {
+                        backgroundColor: '#000',
+                      },
+                    headerTintColor: '#fff',
+                     headerTitleStyle: {
+                        fontWeight: 'bold'
+                     },
                     tabBarIcon: ({ color, focused }) => (
                         <TabIcon
                             icon={icons.search}
@@ -61,6 +75,13 @@ const TabsLayout = () => {
                 name="project"
                 options={{
                     title: '                         City Forge',
+                    headerStyle: {
+                        backgroundColor: '#000',
+                      },
+                    headerTintColor: '#fff',
+                     headerTitleStyle: {
+                        fontWeight: 'bold'
+                     },
                     tabBarIcon: ({ color, focused }) => (
                         <TabIcon
                             icon={icons.project}
@@ -75,6 +96,13 @@ const TabsLayout = () => {
                 name="prediction"
                 options={{
                     title: '                         City Forge',
+                    headerStyle: {
+                        backgroundColor: '#000',
+                      },
+                    headerTintColor: '#fff',
+                     headerTitleStyle: {
+                        fontWeight: 'bold'
+                     },
                     tabBarIcon: ({ color, focused }) => (
                         <TabIcon
                             icon={icons.model}

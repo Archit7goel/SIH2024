@@ -6,8 +6,7 @@ import  ProjectCard  from '../../components/Card';
 import { images } from '../../constants';
 const Home = () => {
   return (
-    <SafeAreaView>
-      <ScrollView>
+    <ScrollView>
       <ProjectCard
           title="NH 48"
           year="2028"
@@ -36,9 +35,7 @@ const Home = () => {
           completion="54"
           img={images.project4}
         />
-      </ScrollView>
-        <StatusBar backgroundColor='#161622' style='light'/>
-    </SafeAreaView>
+    </ScrollView>
   );
 }
 

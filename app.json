@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "Aura",
+    "name": "City Forge",
     "scheme": "Aura",
-    "slug": "Aura",
+    "slug": "Construction Management App for SIH2024",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

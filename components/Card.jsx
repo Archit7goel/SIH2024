@@ -1,58 +1,34 @@
-// import { View, Text, Image } from 'react-native'
-// import React from 'react'
-
-// const ProjectCard = ({title, styles, img}) => {
-//   return (
-//     <View className="flex flex-col items-center px-4 mb-14">
-//       <View className="flex flex-row gap-3 items-start">
-//         <View className="flex justify-center items-center flex-row flex-1">
-//           <View className="w-[340px] h-[250px] rounded-lg border border-secondary flex justify-center items-center p-3">
-//             <Image
-//               source={img}
-//               className="w-[337.5px] h-[250px] rounded-lg"
-//               resizeMode='content'
-//             />
-//             <Text className="text-red-400">{title}</Text>
-//           </View>
-//         </View>
-//       </View>
-//     </View>
-//   );
-// };
-
-// export default ProjectCard;
-
-
-
-import { View, Text, Image, StyleSheet, } from 'react-native';
+import { View, Text, Image, StyleSheet,TouchableOpacity } from 'react-native';
 import React from 'react';
 import { ProgressBarAndroidBase } from 'react-native';
 import { ProgressBar } from 'react-native-paper'; // You can install this with: `npm install react-native-paper`
 
 const ProjectCard = ({ title, year, location, completion, img }) => {
   return (
+  <TouchableOpacity>
     <View style={styles.cardContainer}>
-      {/* Title */}
-      <Text style={styles.title}>{title}</Text>
-      
-      {/* Image */}
-      <Image
-        source={img}
-        style={styles.projectImage}
-        resizeMode="cover"
-      />
-      
-      {/* Project Details */}
-      <View style={styles.projectDetails}>
-        <Text style={styles.detailText}>Year of completion: {year}</Text>
-        <Text style={styles.detailText}>Location: {location}</Text>
-        <Text style={styles.detailText}>Project completed: {completion}%</Text>
+          {/* Title */}
+          <Text style={styles.title}>{title}</Text>
+          
+          {/* Image */}
+          <Image
+            source={img}
+            style={styles.projectImage}
+            resizeMode="cover"
+            />
+          
+          {/* Project Details */}
+          <View style={styles.projectDetails}>
+            <Text style={styles.detailText}>Year of completion: {year}</Text>
+            <Text style={styles.detailText}>Location: {location}</Text>
+            <Text style={styles.detailText}>Project completed: {completion}%</Text>
 
-        {/* Progress Bar */}
-        <ProgressBar progress={completion / 100} color={'#4F8EF7'} />
-        {/* <ProgressBarAndroidBase/> */}
-      </View>
+            {/* Progress Bar */}
+            <ProgressBar progress={completion / 100} color={'#4F8EF7'} />
+            {/* <ProgressBarAndroidBase/> */}
+          </View>
     </View>
+  </TouchableOpacity>
   );
 };
 

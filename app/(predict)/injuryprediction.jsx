@@ -25,7 +25,7 @@ const ProjectForm = () => {
       incident 
     ) {
       // Navigate to DescriptionPage and pass the form data
-      navigation.navigate('injuryresult', {
+      navigation.navigate('(predict)/injuryresult', {
         workDivision,
         role,
         primaryCause,
