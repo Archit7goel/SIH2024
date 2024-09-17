@@ -2,7 +2,7 @@
 
 Problem Statement ID	: [SIH1724](https://www.sih.gov.in/sih2024PS)\
 Organisation : [Ministry of Housing and Urban Affairs](https://mohua.gov.in)\
-Department : Smart Cities Mission\
+Department : [Smart Cities Mission](https://smartcities.gov.in)\
 Category : Software\
 Theme : 	Miscellaneous
 
@@ -15,7 +15,10 @@ Description: The digital platform can provide solutions for-
 2. Scheduling of tasks, reports, and work distribution between agencies for projects categorized as "Inter-departmental"
 3. Identification of projects in different departments which share the project site, and tools for assistance in organizing meetings of various departments, unified project phasing (to reduce costs incurred), planning and execution of projects.
 4. Training and capacity building exercises, workshops & seminars.
-5. Discussion forum with (Intra department, inter department, and public form sections. Expected Solution- A digital platform for interdepartmental cooperation which allows functions of-\
+5. Discussion forum with (Intra department, inter department, and public form sections.
+
+
+Expected Solution- A digital platform for interdepartmental cooperation which allows functions of-\
    a. Registering departments, employees, officers, technical experts etc. with their accounts.\
    b. Sharing data, ongoing projects with location, and inventory of available resources between departments/agencies.\
    c. Creation of tasks, scheduling, reporting and work distribution across departments for inter-departmental and multi-departmental projects.\
