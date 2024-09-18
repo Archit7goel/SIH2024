@@ -28,7 +28,7 @@ const DarkGridAuth = () => {
 const Heading = ({ isRegistering }) => {
   return (
     <Text className="text-white text-3xl font-bold mb-8">
-      {isRegistering ? "Register your account" : "Sign in to your account"}
+      {isRegistering ? "Register your Account" : "Sign in to your Account"}
     </Text>
   );
 };
