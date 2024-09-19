@@ -47,7 +47,7 @@ const ProjectForm = () => {
 
   return (
     <ScrollView className="flex-1 bg-blue-50 p-5">
-      <Text className="text-2xl font-bold mb-5 text-center">Cost Overrun Evaluation Form</Text>
+      <Text className="text-2xl font-bold pt-12 mb-5 text-center">Cost Overrun Evaluation Form</Text>
 
       {/* Inflation */}
       <Text className="text-lg font-semibold mb-2">Inflation</Text>
@@ -169,7 +169,7 @@ const ProjectForm = () => {
 
       {/* Submit Button */}
       <TouchableOpacity
-        className="bg-blue-500 p-4 rounded-lg items-center mt-4 mb-8"
+        className="bg-blue-500 p-4 rounded-lg items-center mt-4 mb-20"
         onPress={handleSubmit}
       >
         <Text className="text-white text-lg font-bold">Submit</Text>

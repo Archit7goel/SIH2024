@@ -1,22 +1,25 @@
-import React, { useState } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Image, TextInput, Alert } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Image, TextInput, Alert, Button } from 'react-native';
 import ProjectCard from '../../components/Card'; // Adjust the import path if needed
 import { images } from '../../constants';
 import { icons } from "../../constants";
+import { Link } from 'expo-router';
+import React, { useState, useEffect } from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { StatusBar } from 'expo-status-bar';
+import { Ionicons } from '@expo/vector-icons'; // For icons like menu and profile
 
 const Project = () => {
   const [selectedTab, setSelectedTab] = useState('Completed');
   const [searchQuery, setSearchQuery] = useState(''); // State to manage the search query
 
   // Sample data for each tab
-
   const completedProjects = [
     {
       title: 'Palam Pur Highway',
       year: '2028',
       location: 'jhchjhhv vv fvvk kuy­iukv kyk­uv',
       completion: 100,
-      img: images.project5 , // Replace with your image source
+      img: images.project5, // Replace with your image source
     },
     // Add more completed projects here
   ];
@@ -29,48 +32,6 @@ const Project = () => {
       completion: 70,
       img: images.project6, // Replace with your image source
     },
-    {
-      title: 'Theater Construction',
-      year: '2025',
-      location: 'Somewhere in New City',
-      completion: 70,
-      img: images.project6, // Replace with your image source
-    },
-    {
-      title: 'Road Construction',
-      year: '2025',
-      location: 'Somewhere in New City',
-      completion: 70,
-      img: images.project6, // Replace with your image source
-    },
-    {
-      title: 'Dam Construction',
-      year: '2025',
-      location: 'Somewhere in New City',
-      completion: 70,
-      img: images.project6, // Replace with your image source
-    },
-    {
-      title: 'Bridge Construction',
-      year: '2025',
-      location: 'Somewhere in New City',
-      completion: 70,
-      img: images.project6, // Replace with your image source
-    },
-    {
-      title: 'Hospital Construction',
-      year: '2025',
-      location: 'Somewhere in New City',
-      completion: 70,
-      img: images.project6, // Replace with your image source
-    },
-    {
-      title: 'New Mall',
-      year: '2025',
-      location: 'Somewhere in New City',
-      completion: 70,
-      img: images.project6, // Replace with your image source
-    }
     // Add more ongoing projects here
   ];
 
@@ -84,31 +45,29 @@ const Project = () => {
     },
     // Add more future projects here
   ];
-  const allProjects = [...completedProjects,...ongoingProjects,...futureProjects,];
+
+  const allProjects = [...completedProjects, ...ongoingProjects, ...futureProjects];
 
   // Get the list of projects based on the selected tab
   const getProjectsByTab = () => {
     if (selectedTab === 'Completed') {
       return completedProjects;
-    }
-    else if (selectedTab === 'Ongoing') {
+    } else if (selectedTab === 'Ongoing') {
       return ongoingProjects;
-    }
-    else if (selectedTab === 'Future') {
+    } else if (selectedTab === 'Future') {
       return futureProjects;
-    }
-    else if (selectedTab === 'All') {
+    } else if (selectedTab === 'All') {
       return allProjects;
     }
-      return [];
-    };
+    return [];
+  };
 
   // Filter projects based on the search query
   const filterProjects = (projects) => {
     if (searchQuery === '') {
       return projects;
     }
-    return projects.filter(project =>
+    return projects.filter((project) =>
       project.title.toLowerCase().includes(searchQuery.toLowerCase())
     );
   };
@@ -131,7 +90,25 @@ const Project = () => {
   };
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#FFFFFF' }}>
+    <SafeAreaView style={{ flex: 1 }}>
+      <StatusBar style="dark" />
+
+      {/* Header */}
+      <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', padding: 10, backgroundColor: '#fff' }}>
+        {/* Menu Icon */}
+        <TouchableOpacity onPress={() => Alert.alert('Menu clicked')}>
+          <Ionicons name="menu" size={40} color="black" />
+        </TouchableOpacity>
+
+        {/* Logo in the Center */}
+        <Image source={require('C:/Users/archi/OneDrive/Desktop/SIH2024/assets/images/logocityforge.png')} style={{ width: 300, height: 80 }} resizeMode="contain" />
+
+        {/* Profile Icon */}
+        <TouchableOpacity onPress={() => Alert.alert('Profile clicked')}>
+          <Ionicons name="person-circle-outline" size={40} color="black" />
+        </TouchableOpacity>
+      </View>
+
       {/* Tab Menu */}
       <View style={styles.tabContainer}>
         {['All', 'Completed', 'Ongoing', 'Future'].map((tab) => (
@@ -156,10 +133,10 @@ const Project = () => {
         />
         <TouchableOpacity
           onPress={() => {
-            if (searchQuery === "")
+            if (searchQuery === '')
               return Alert.alert(
-                "Missing Query",
-                "Please input something to search results across the database"
+                'Missing Query',
+                'Please input something to search results across the database'
               );
           }}
         >
@@ -171,7 +148,7 @@ const Project = () => {
       <ScrollView contentContainerStyle={{ padding: 20 }}>
         {renderProjectCards()}
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -199,7 +176,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     height: 50,
-    backgroundColor: '#F1F1F1',
+    backgroundColor: 'white',
     borderRadius: 10,
     paddingHorizontal: 10,
     marginBottom: 20,
