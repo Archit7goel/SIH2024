@@ -8,97 +8,100 @@ const Project = () => {
   const [selectedTab, setSelectedTab] = useState('Completed');
   const [searchQuery, setSearchQuery] = useState(''); // State to manage the search query
 
-// Sample data for each tab
+  // Sample data for each tab
 
-const completedProjects = [
-  {
-    title: 'Palam Pur Highway',
-    year: '2028',
-    location: 'jhchjhhv vv fvvk kuy­iukv kyk­uv',
-    completion: 100,
-    img: images.project5 , // Replace with your image source
-  },
-  // Add more completed projects here
-];
+  const completedProjects = [
+    {
+      title: 'Palam Pur Highway',
+      year: '2028',
+      location: 'jhchjhhv vv fvvk kuy­iukv kyk­uv',
+      completion: 100,
+      img: images.project5 , // Replace with your image source
+    },
+    // Add more completed projects here
+  ];
 
-const ongoingProjects = [
-  {
-    title: 'Mall Construction',
-    year: '2025',
-    location: 'Somewhere in New City',
-    completion: 70,
-    img: images.project6, // Replace with your image source
-  },
-  {
-    title: 'Theater Construction',
-    year: '2025',
-    location: 'Somewhere in New City',
-    completion: 70,
-    img: images.project6, // Replace with your image source
-  },
-  {
-    title: 'Road Construction',
-    year: '2025',
-    location: 'Somewhere in New City',
-    completion: 70,
-    img: images.project6, // Replace with your image source
-  },
-  {
-    title: 'Dam Construction',
-    year: '2025',
-    location: 'Somewhere in New City',
-    completion: 70,
-    img: images.project6, // Replace with your image source
-  },
-  {
-    title: 'Bridge Construction',
-    year: '2025',
-    location: 'Somewhere in New City',
-    completion: 70,
-    img: images.project6, // Replace with your image source
-  },
-  {
-    title: 'Hospital Construction',
-    year: '2025',
-    location: 'Somewhere in New City',
-    completion: 70,
-    img: images.project6, // Replace with your image source
-  },
-  {
-    title: 'New Mall',
-    year: '2025',
-    location: 'Somewhere in New City',
-    completion: 70,
-    img: images.project6, // Replace with your image source
-  }
-  // Add more ongoing projects here
-];
+  const ongoingProjects = [
+    {
+      title: 'Mall Construction',
+      year: '2025',
+      location: 'Somewhere in New City',
+      completion: 70,
+      img: images.project6, // Replace with your image source
+    },
+    {
+      title: 'Theater Construction',
+      year: '2025',
+      location: 'Somewhere in New City',
+      completion: 70,
+      img: images.project6, // Replace with your image source
+    },
+    {
+      title: 'Road Construction',
+      year: '2025',
+      location: 'Somewhere in New City',
+      completion: 70,
+      img: images.project6, // Replace with your image source
+    },
+    {
+      title: 'Dam Construction',
+      year: '2025',
+      location: 'Somewhere in New City',
+      completion: 70,
+      img: images.project6, // Replace with your image source
+    },
+    {
+      title: 'Bridge Construction',
+      year: '2025',
+      location: 'Somewhere in New City',
+      completion: 70,
+      img: images.project6, // Replace with your image source
+    },
+    {
+      title: 'Hospital Construction',
+      year: '2025',
+      location: 'Somewhere in New City',
+      completion: 70,
+      img: images.project6, // Replace with your image source
+    },
+    {
+      title: 'New Mall',
+      year: '2025',
+      location: 'Somewhere in New City',
+      completion: 70,
+      img: images.project6, // Replace with your image source
+    }
+    // Add more ongoing projects here
+  ];
 
-const futureProjects = [
-  {
-    title: 'Future Skyscraper',
-    year: '2030',
-    location: 'Downtown',
-    completion: 0,
-    img: images.project7, // Replace with your image source
-  },
-  // Add more future projects here
-];
-const allProjects = [...completedProjects,...ongoingProjects,...futureProjects,];
+  const futureProjects = [
+    {
+      title: 'Future Skyscraper',
+      year: '2030',
+      location: 'Downtown',
+      completion: 0,
+      img: images.project7, // Replace with your image source
+    },
+    // Add more future projects here
+  ];
+  const allProjects = [...completedProjects,...ongoingProjects,...futureProjects,];
 
-// Get the list of projects based on the selected tab
-const getProjectsByTab = () => {
-  if (selectedTab === 'Completed') {
-    return completedProjects;
-  } else if (selectedTab === 'Ongoing') {
+  // Get the list of projects based on the selected tab
+  const getProjectsByTab = () => {
+    if (selectedTab === 'Completed') {
+      return completedProjects;
+    }
+    else if (selectedTab === 'Ongoing') {
       return ongoingProjects;
-    } else if (selectedTab === 'Future') {
+    }
+    else if (selectedTab === 'Future') {
       return futureProjects;
-    } else if (selectedTab === 'All') {
+    }
+    else if (selectedTab === 'All') {
       return allProjects;
     }
-    return [];
-  };
+      return [];
+    };
 
   // Filter projects based on the search query
   const filterProjects = (projects) => {

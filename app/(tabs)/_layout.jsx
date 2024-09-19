@@ -1,5 +1,5 @@
 import { View, Text, Image } from 'react-native'
-import { Tabs, Redirect } from 'expo-router'
+import { Tabs } from 'expo-router'
 
 import { icons } from '../../constants';
 
@@ -26,20 +26,17 @@ const TabsLayout = () => {
     <>
         <Tabs
             screenOptions={{
-                tabBarShowLabel: false
+                tabBarShowLabel: false,
+                title: 'City Forge',
+                headerStyle: {backgroundColor: '#28927f'},
+                headerTintColor: '#fff',
+                headerTitleStyle: {fontWeight: 'bold'},
+                headerTitleAlign:'center'
             }}
         >
             <Tabs.Screen
                 name="home"
                 options={{
-                    title: '                         City Forge',
-                    headerStyle: {
-                        backgroundColor: '#000',
-                      },
-                    headerTintColor: '#fff',
-                     headerTitleStyle: {
-                        fontWeight: 'bold'
-                     },
                     tabBarIcon: ({ color, focused }) => (
                         <TabIcon
                             icon={icons.home}
@@ -53,14 +50,6 @@ const TabsLayout = () => {
             <Tabs.Screen
                 name="add"
                 options={{
-                    title: '                         City Forge',
-                    headerStyle: {
-                        backgroundColor: '#000',
-                      },
-                    headerTintColor: '#fff',
-                     headerTitleStyle: {
-                        fontWeight: 'bold'
-                     },
                     tabBarIcon: ({ color, focused }) => (
                         <TabIcon
                             icon={icons.add}
@@ -74,14 +63,6 @@ const TabsLayout = () => {
             <Tabs.Screen
                 name="project"
                 options={{
-                    title: '                         City Forge',
-                    headerStyle: {
-                        backgroundColor: '#000',
-                      },
-                    headerTintColor: '#fff',
-                     headerTitleStyle: {
-                        fontWeight: 'bold'
-                     },
                     tabBarIcon: ({ color, focused }) => (
                         <TabIcon
                             icon={icons.project}
@@ -95,14 +76,6 @@ const TabsLayout = () => {
             <Tabs.Screen
                 name="prediction"
                 options={{
-                    title: '                         City Forge',
-                    headerStyle: {
-                        backgroundColor: '#000',
-                      },
-                    headerTintColor: '#fff',
-                     headerTitleStyle: {
-                        fontWeight: 'bold'
-                     },
                     tabBarIcon: ({ color, focused }) => (
                         <TabIcon
                             icon={icons.model}
