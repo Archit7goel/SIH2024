@@ -51,7 +51,7 @@ const TabsLayout = () => {
                 }}
             />
             <Tabs.Screen
-                name="query"
+                name="add"
                 options={{
                     title: '                         City Forge',
                     headerStyle: {
