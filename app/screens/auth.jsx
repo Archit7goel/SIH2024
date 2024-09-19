@@ -203,7 +203,7 @@ const DarkGridAuth = () => {
         </View>
         
         <View className="mt-4">
-          <Link href="/home" asChild>
+          {/* <Link href="/home" asChild> */}
             <TouchableOpacity
               className="bg-white p-4 rounded-md mb-4"
               onPress={handleSubmit}
@@ -212,7 +212,7 @@ const DarkGridAuth = () => {
                 {isRegistering ? "Register" : "Login"}
               </Text>
             </TouchableOpacity>
-          </Link>
+          {/* </Link> */}
           
           <Text className="text-gray-500 text-center px-1">
             {isRegistering ? "Already have an account? " : "Don't have an account? "}
