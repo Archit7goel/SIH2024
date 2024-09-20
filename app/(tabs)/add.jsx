@@ -1,14 +1,35 @@
+import { View, Text, Image, ScrollView, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-export default function App() {
+import { Ionicons } from '@expo/vector-icons'; // For icons like menu and profile
+
+
+const Add = () => {
   return (
-    <View style={styles.container}>
-      <Text>Add Projects Page</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={{ flex: 1 }}>
+      <StatusBar style="dark" />
+
+      {/* Header */}
+      <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', padding: 10, backgroundColor: '#fff' }}>
+        
+        {/* Menu Icon */}
+        <TouchableOpacity onPress={() => Alert.alert("Menu clicked")}>
+          <Ionicons name="menu" size={40} color="black" />
+        </TouchableOpacity>
+
+        {/* Logo in the Center */}
+        <Image source={require('C:/Users/archi/OneDrive/Desktop/SIH2024/assets/images/logocityforge.png')} style={{ width: 300, height: 80 }} resizeMode="contain" />
+
+
+        {/* Profile Icon */}
+        <TouchableOpacity onPress={() => Alert.alert("Profile clicked")}>
+          <Ionicons name="person-circle-outline" size={40} color="black" />
+        </TouchableOpacity>
+      </View>
+    </SafeAreaView>
   );
-}
+}      
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -17,3 +38,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+export default Add;

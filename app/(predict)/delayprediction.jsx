@@ -52,7 +52,7 @@ const ProjectEvaluationForm = () => {
 
   return (
     <ScrollView className="flex-1 bg-blue-50 p-5">
-      <Text className="text-2xl font-bold mb-5 text-center">Project Evaluation Form</Text>
+      <Text className="text-2xl font-bold pt-12 mb-5 text-center">Project Evaluation Form</Text>
 
       {/* Estimated Area Field */}
       <Text className="text-lg font-semibold mb-2">Estimated Area (sq.ft)</Text>
@@ -137,7 +137,7 @@ const ProjectEvaluationForm = () => {
       {/* Submit Button */}
       <TouchableOpacity
         onPress={handleSubmit}
-        className="bg-blue-500 p-4 rounded-lg items-center mt-4"
+        className="bg-blue-500 p-4 rounded-lg items-center mt-4 mb-20"
       >
         <Text className="text-white text-lg font-bold">Submit</Text>
       </TouchableOpacity>
