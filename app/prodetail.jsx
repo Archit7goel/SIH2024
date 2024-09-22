@@ -250,11 +250,11 @@ const ProjectPage = () => {
             {/* Display sent messages in a scrollable box */}
             <View style={styles.messageBox}>
               <ScrollView
-                nestedScrollEnabled={true}
                 ref={scrollViewRef}
                 onScroll={handleScroll}
                 scrollEventThrottle={16} // Optimize performance
                 showsVerticalScrollIndicator={true}
+                nestedScrollEnabled={true}
               >
                 {messages.map((msg, index) => (
                   <View key={index} style={styles.messageContainer}>
