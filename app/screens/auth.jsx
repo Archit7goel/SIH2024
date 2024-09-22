@@ -92,58 +92,63 @@ const DarkGridAuth = () => {
   return (
     <ScrollView contentContainerStyle={{ flexGrow: 1 }} showsVerticalScrollIndicator={false}>
       <View className="flex-1 bg-black pt-20 px-8">
+        {/* Heading */}
         <Text className="text-white text-3xl font-bold mb-8">
           {isRegistering ? "Register your Account" : "Sign in to your Account"}
         </Text>
-        
+
+        {/* Form */}
         <View className="flex-1">
-          {isRegistering ? (
-            <>
-              <InputField
-                placeholder="Name"
-                value={formData.name}
-                onChangeText={(value) => handleInputChange('name', value)}
-                error={errors.name}
-              />
-              <InputField
-                placeholder="Username"
-                value={formData.username}
-                onChangeText={(value) => handleInputChange('username', value)}
-                error={errors.username}
-              />
-              <InputField
-                placeholder="Phone Number"
-                value={formData.phone}
-                onChangeText={(value) => handleInputChange('phone', value)}
-                keyboardType="phone-pad"
-                error={errors.phone}
-              />
-              <InputField
-                placeholder="Email"
-                value={formData.email}
-                onChangeText={(value) => handleInputChange('email', value)}
-                keyboardType="email-address"
-                error={errors.email}
-              />
-            </>
-          ) : (
-            <>
-              <InputField
-                placeholder="Username"
-                value={formData.username}
-                onChangeText={(value) => handleInputChange('username', value)}
-                error={errors.username}
-              />
-              <InputField
-                placeholder="Phone Number"
-                value={formData.phone}
-                onChangeText={(value) => handleInputChange('phone', value)}
-                keyboardType="phone-pad"
-                error={errors.phone}
-              />
-            </>
-          )}
+          {/*Input Fields*/}
+          {isRegistering ? 
+            (
+              <>
+                <InputField
+                  placeholder="Name"
+                  value={formData.name}
+                  onChangeText={(value) => handleInputChange('name', value)}
+                  error={errors.name}
+                />
+                <InputField
+                  placeholder="Username"
+                  value={formData.username}
+                  onChangeText={(value) => handleInputChange('username', value)}
+                  error={errors.username}
+                />
+                <InputField
+                  placeholder="Phone Number"
+                  value={formData.phone}
+                  onChangeText={(value) => handleInputChange('phone', value)}
+                  keyboardType="phone-pad"
+                  error={errors.phone}
+                />
+                <InputField
+                  placeholder="Email"
+                  value={formData.email}
+                  onChangeText={(value) => handleInputChange('email', value)}
+                  keyboardType="email-address"
+                  error={errors.email}
+                />
+              </>
+            ) : (
+              <>
+                <InputField
+                  placeholder="Username"
+                  value={formData.username}
+                  onChangeText={(value) => handleInputChange('username', value)}
+                  error={errors.username}
+                />
+                <InputField
+                  placeholder="Phone Number"
+                  value={formData.phone}
+                  onChangeText={(value) => handleInputChange('phone', value)}
+                  keyboardType="phone-pad"
+                  error={errors.phone}
+                />
+              </>
+            )}
           
+          {/* Password Fields */}
           <View className="relative mb-4">
             <TextInput
               className="bg-gray-800 p-4 rounded-md text-white"
@@ -166,6 +171,7 @@ const DarkGridAuth = () => {
           </View>
           {errors.password && <Text className="text-red-500 mb-4">{errors.password}</Text>}
           
+          {/* Picker Fields */}
           {isRegistering && (
             <>
               <PickerField
@@ -202,8 +208,29 @@ const DarkGridAuth = () => {
           )}
         </View>
         
+        {/* Footer */}
         <View className="mt-4">
-          {/* <Link href="/home" asChild> */}
+          {/* Buttons */}
+            {/* Comment this block of code: */}
+            {!isRegistering && (
+            <Link href='/home' asChild>
+              <TouchableOpacity className="bg-white p-4 rounded-md mb-4">
+                <Text className="text-black text-center text-lg font-bold">
+                  Home Page (Temporary) 
+                </Text>
+                </TouchableOpacity>
+            </Link>
+            )}
+            {!isRegistering && (
+            <Link href='/prodetail' asChild>
+              <TouchableOpacity className="bg-white p-4 rounded-md mb-4">
+                <Text className="text-black text-center text-lg font-bold">
+                  Project Details Page (Temporary)
+                </Text>
+                </TouchableOpacity>
+            </Link>
+            )}
+            {/* :Comment this block of code */}
             <TouchableOpacity
               className="bg-white p-4 rounded-md mb-4"
               onPress={handleSubmit}
@@ -212,8 +239,8 @@ const DarkGridAuth = () => {
                 {isRegistering ? "Register" : "Login"}
               </Text>
             </TouchableOpacity>
-          {/* </Link> */}
           
+          {/* Already have an account? */}
           <Text className="text-gray-500 text-center px-1">
             {isRegistering ? "Already have an account? " : "Don't have an account? "}
             <TouchableOpacity onPress={toggleAuthMode}>
@@ -221,6 +248,8 @@ const DarkGridAuth = () => {
             </TouchableOpacity>
           </Text>
           
+
+          {/* Terms of Service */}
           <Text className="text-gray-500 text-center mt-4">
             By continuing, you agree to our Terms of Service and Privacy Policy.
           </Text>
